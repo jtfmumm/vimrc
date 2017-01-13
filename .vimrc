@@ -4,7 +4,6 @@ let mapleader=","       " leader is comma
 " ========= PLUGINS =========
 set nocompatible              " be iMproved, required
 filetype off                  " required
-
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -31,7 +30,6 @@ Plugin 'Valloric/YouCompleteMe'
 " " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-
 
 " ========= LEADER =========
 " save session so it's there next time you open vi
