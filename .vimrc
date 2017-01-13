@@ -1,8 +1,7 @@
 " mapleader needs to be set first, before plugins are loaded
 let mapleader=","       " leader is comma
 
-" PLUGINS
-
+" ========= PLUGINS =========
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -34,7 +33,7 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 
-" LEADER
+" ========= LEADER =========
 " save session so it's there next time you open vi
 nnoremap <leader>s :mksession<CR>
 " open ag.vim, Silver Searcher search
