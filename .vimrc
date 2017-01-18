@@ -26,6 +26,8 @@ Plugin 'ctrlpvim/ctrlp.vim'
 " cd ~/.vim/bundle/YouCompleteMe
 " ./install.py --clang-completer
 Plugin 'Valloric/YouCompleteMe'
+" Minibuffer explorer (set up below)
+Plugin 'fholgado/minibufexpl.vim'
 "
 " " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -39,9 +41,20 @@ nnoremap <leader>a :Ag
 
 " ========= BINDINGS =========
 map ; :
+imap pf @printf[I32]("\n".cstring())
 " Move to beginning and end of line in insert mode
 inoremap <C-e> <Esc>A
 inoremap <C-a> <Esc>I
+" Use tab and shift-tab for indent in all modes
+nnoremap <Tab> >>_
+nnoremap <S-Tab> <<_
+inoremap <S-Tab> <C-D>
+vnoremap <Tab> >gv
+vnoremap <S-Tab> <gv
+" Move between tabs
+map <S-Left> :tabprevious<cr>
+map <S-Right> :tabnext<cr>
+
 
 " ========= COLORS =========
 colorscheme badwolf
@@ -50,6 +63,7 @@ colorscheme badwolf
 set tabstop=2       " number of visual spaces per TAB
 set softtabstop=2   " number of spaces in tab when editing
 set expandtab       " tabs are spacesi
+set shiftwidth=2    " sets indent size
 
 " ========= UI =========
 set visualbell			" no sounds
@@ -57,6 +71,7 @@ set number              " show line numbers
 set wildmenu            " visual autocomplete for command menu
 set lazyredraw          " redraw only when we need to.
 set showmatch           " highlight matching [{()}]
+set mouse=a             " enables mouse for all modes, alt-click over ssh
 
 " ========= SEARCHING =========
 set incsearch           " search as characters are entered
@@ -78,6 +93,11 @@ set scrolloff=8         "Start scrolling when we're 8 lines away from margins
 set hidden
 set history=1000
 
+" ========= BUFFERS ==========
+" Press tab at menu to autocomplete after :b etc.
+" Keep pressing to cycle through.
+set wildchar=<Tab> wildmenu wildmode=full
+
 " ========= NERDTREE =========
 " Open nerdtree automatically if no file is specified
 " autocmd StdinReadPre * let s:std_in=1
@@ -87,3 +107,11 @@ map <leader>m :NERDTreeToggle<CR>
 
 " ======== CTRLP =============
 let g:ctrlp_map='<c-t>'
+
+" ======== MINIBUFEXPLORER ==========
+" Use open to open or toggle to open/close.
+" Use in conjunction with normal buffer commands:
+"  :b3 open 3, :bd4 close 4, etc. 
+map <leader>o :MBEOpen<cr>
+map <leader>c :MBEClose<cr>
+map <leader>t :MBEToggle<cr>
