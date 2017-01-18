@@ -41,7 +41,7 @@ nnoremap <leader>a :Ag
 
 " ========= BINDINGS =========
 map ; :
-imap pf @printf[I32]("\n".cstring())
+imap pf @printf[I32]("\n".cstring())<Esc>13<Left>i
 " Move to beginning and end of line in insert mode
 inoremap <C-e> <Esc>A
 inoremap <C-a> <Esc>I
