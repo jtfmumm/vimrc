@@ -43,11 +43,11 @@ Plugin 'vim-airline/vim-airline'
 " Simpler session management (vim-misc is a requirement)
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-session'
-" I've got <leader>a to open this
+" 
 Plugin 'ggreer/the_silver_searcher'
 "
 Plugin 'jtfmumm/pony-vim-expansions'
-" Auto close parens, braces, etc.
+" Auto close parens, braces, etc. <leader>a toggles it off and on.
 Plugin 'vim-scripts/AutoClose'
 " " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -58,7 +58,7 @@ filetype plugin indent on    " required
 " save session so it's there next time you open vi
 nnoremap <leader>s :mksession<CR>
 " open ag.vim, Silver Searcher search
-nnoremap <leader>a :Ag
+""nnoremap <leader>SOMETHING :Ag
 " }}}
 
 " ========= COMPILER ========= {{{
